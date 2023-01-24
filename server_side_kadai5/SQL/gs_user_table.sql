@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- ホスト: localhost:8889
--- 生成日時: 2022 年 6 月 16 日 15:40
--- サーバのバージョン： 5.7.32
--- PHP のバージョン: 7.4.16
+-- ホスト: 127.0.0.1
+-- 生成日時: 2023-01-24 08:27:36
+-- サーバのバージョン： 10.4.27-MariaDB
+-- PHP のバージョン: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- データベース: `gs_db5`
+-- データベース: `kadai_php4`
 --
 
 -- --------------------------------------------------------
@@ -29,9 +29,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `gs_user_table` (
   `id` int(12) NOT NULL,
-  `name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
-  `lid` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
-  `lpw` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  `user` varchar(64) NOT NULL,
+  `lid` varchar(128) NOT NULL,
+  `lpw` varchar(64) NOT NULL,
   `kanri_flg` int(1) NOT NULL,
   `life_flg` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -40,10 +40,13 @@ CREATE TABLE `gs_user_table` (
 -- テーブルのデータのダンプ `gs_user_table`
 --
 
-INSERT INTO `gs_user_table` (`id`, `name`, `lid`, `lpw`, `kanri_flg`, `life_flg`) VALUES
-(1, 'テスト１管理者', 'test1', '$2y$10$amJsJbnjco8Gyz9bytkawOgWcKDu2PC/hf6daAkGYFZ35nmoq1ETu', 1, 0),
-(2, 'テスト2一般', 'test2', '$2y$10$Jrod7Xts/VPa0ThZhT33AedMO7D2rHLA.qqDLqYGvimBqsP5Xliia', 0, 0),
-(3, 'テスト３', 'test3', '$2y$10$hT8NciYWQ3.lO0QLfz1UHOySxqHYFVN3f3p2tTLQKiIgw0kBvO6g.', 0, 0);
+INSERT INTO `gs_user_table` (`id`, `user`, `lid`, `lpw`, `kanri_flg`, `life_flg`) VALUES
+(1, 'テスト１管理者', 'test1', 'test1', 1, 0),
+(2, 'テスト2一般', 'test2', 'test2', 0, 0),
+(3, 'テスト３', 'test3', 'test3', 0, 0),
+(4, 'kijima', 'kijima', 'kijima', 0, 0),
+(5, 'kijima', 'kijima', 'kijima', 0, 0),
+(6, 'kijima', 'kijima', 'kijima', 0, 0);
 
 --
 -- ダンプしたテーブルのインデックス
@@ -63,7 +66,7 @@ ALTER TABLE `gs_user_table`
 -- テーブルの AUTO_INCREMENT `gs_user_table`
 --
 ALTER TABLE `gs_user_table`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
